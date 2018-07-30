@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html class="client-js" dir="ltr" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>SELECT from WORLD Tutorial - SQLZOO</title>
+<script src="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/osd.js"></script><script src="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/ca-pub-0803888854272698.js"></script><script async="" src="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/analytics.js"></script><script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"SELECT_from_WORLD_Tutorial","wgTitle":"SELECT from WORLD Tutorial","wgCurRevisionId":39070,"wgRevisionId":39070,"wgArticleId":915,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Languages pages"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"SELECT_from_WORLD_Tutorial","wgRelevantArticleId":915,"wgRequestId":"W16yBj0cD4NacfQqt5yTCAAAAZM","wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]});mw.loader.state({"site.styles":"ready","noscript":"ready","user.styles":"ready","user":"ready","user.options":"loading","user.tokens":"loading","ext.pygments":"ready","ext.embedVideo.styles":"ready","mediawiki.legacy.shared":"ready","mediawiki.legacy.commonPrint":"ready","mediawiki.sectionAnchor":"ready","mediawiki.skinning.interface":"ready","skins.vector.styles":"ready"});mw.loader.implement("user.options@0bhc5ha",function($,jQuery,require,module){mw.user.options.set([]);});mw.loader.implement("user.tokens@0okbxq3",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/
+
+});mw.loader.load(["ext.embedVideo","site","mediawiki.page.startup","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.toc","mediawiki.searchSuggest","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/load.css">
+<script async="" src="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/load.php"></script>
+<style>
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:0;z-index:1099;padding:0;margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:#fff;cursor:pointer;border:solid 1px #aaa;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:#fff;cursor:pointer;border:solid 1px #aaa;padding:0;margin:0}.suggestions-result{color:#000;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4c59a6;color:#fff}.suggestions-special .special-label{color:#808080;text-align:left}.suggestions-special .special-query{color:#000;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:#c0c0c0}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:#fff}.highlight{font-weight:bold}
+@media screen {
+	.tochidden,.toctoggle{-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.toctoggle{font-size:94%}}
+@media print {
+	#toc.tochidden,.toc.tochidden,.toctoggle{display:none}}</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:#000;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:#fff}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/load_002.css">
+<meta name="generator" content="MediaWiki 1.30.0">
+<link rel="shortcut icon" href="http://sqlzoo.net/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://sqlzoo.net/w/opensearch_desc.php" title="SQLZOO (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://sqlzoo.net/w/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="SQLZOO Atom feed" href="http://sqlzoo.net/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-33860668-1', 'auto');
+ga('send', 'pageview');
+</script><script src="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/load_002.php"></script><style rel="stylesheet">.ans{display:none;}</style>
+<!--[if lt IE 9]><script src="/resources/lib/html5shiv/html5shiv.min.js"></script><![endif]-->
+<link href="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/css.css" rel="stylesheet"><link rel="preload" href="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/integrator.js" as="script"><script type="text/javascript" src="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/integrator.js"></script><link rel="preload" href="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/integrator_002.js" as="script"><script type="text/javascript" src="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/integrator_002.js"></script></head><span id="warning-container"><i data-reactroot=""></i></span>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-SELECT_from_WORLD_Tutorial rootpage-SELECT_from_WORLD_Tutorial skin-vector action-view">		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators mw-body-content">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">SELECT from WORLD Tutorial</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub" class="noprint">From SQLZOO</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><div class="mw-parser-output"><table class="nmbox" style="border:1px solid #AAA; border-collapse:collapse; clear:both; font-size:85%; margin: 0.5em 0">
+<tbody><tr style="background:#EEF3E2">
+<th class="mbox-image" style="white-space:nowrap; padding:4px 1em; border-right:1px solid #aaa"> <a href="http://sqlzoo.net/wiki/Special:MyLanguage/Project:Language_policy" title="Special:MyLanguage/Project:Language policy">Language:</a><span style="display:none"><a href="http://sqlzoo.net/wiki/SQLZOO:Language_policy" title="SQLZOO:Language policy">Project:Language policy</a></span></th>
+<td class="mbox-text" style="background:#F6F9ED"><b><a class="mw-selflink selflink">English</a></b> &nbsp;• <bdi lang="ja"><a href="http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial/ja" title="SELECT from WORLD Tutorial/ja">日本語</a></bdi><span class="autonym"></span><span class="autonym"></span>&nbsp;• <bdi lang="zh"><a href="http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial/zh" class="mw-redirect" title="SELECT from WORLD Tutorial/zh">中文</a></bdi></td>
+</tr></tbody></table>
+<div class="ref_section">
+<table class="db_ref">
+<tbody><tr><th>name</th><th>continent</th><th>area</th>
+<th>population</th><th>gdp</th></tr>
+<tr><td>Afghanistan</td><td>Asia</td><td class="r">652230</td><td class="r">25500100</td><td class="r">20343000000</td></tr>
+<tr><td>Albania</td><td>Europe</td><td class="r">28748	</td><td class="r">2831741	</td><td class="r">12960000000	</td></tr>
+<tr><td>Algeria</td><td>Africa</td><td class="r">2381741	</td><td class="r">37100000	</td><td class="r">188681000000	</td></tr>
+<tr><td>Andorra</td><td>Europe</td><td class="r">468</td><td class="r">78115	</td><td class="r">3712000000	</td></tr><tr>
+<td>Angola</td><td>Africa</td><td class="r">1246700	</td><td class="r">20609294	</td><td class="r">100990000000	</td></tr>
+<tr>
+<td colspan="5">...</td>
+</tr>
+</tbody></table>
+</div>
+<p><br>
+In this tutorial you will use the SELECT command on the table <code>world</code>:
+</p>
+<div class="extra_space" style="width:1em; height:2.5em;"></div>
+<div id="toc" class="toc"><div class="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a role="button" tabindex="0" class="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Large_Countries"><span class="tocnumber">2</span> <span class="toctext">Large Countries</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Per_capita_GDP"><span class="tocnumber">3</span> <span class="toctext">Per capita GDP</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#South_America_In_millions"><span class="tocnumber">4</span> <span class="toctext">South America In millions</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#France.2C_Germany.2C_Italy"><span class="tocnumber">5</span> <span class="toctext">France, Germany, Italy</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#United"><span class="tocnumber">6</span> <span class="toctext">United</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Two_ways_to_be_big"><span class="tocnumber">7</span> <span class="toctext">Two ways to be big</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#One_or_the_other_.28but_not_both.29"><span class="tocnumber">8</span> <span class="toctext">One or the other (but not both)</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Rounding"><span class="tocnumber">9</span> <span class="toctext">Rounding</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Trillion_dollar_economies"><span class="tocnumber">10</span> <span class="toctext">Trillion dollar economies</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Name_and_capital_have_the_same_length"><span class="tocnumber">11</span> <span class="toctext">Name and capital have the same length</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Matching_name_and_capital"><span class="tocnumber">12</span> <span class="toctext">Matching name and capital</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="#All_the_vowels"><span class="tocnumber">13</span> <span class="toctext">All the vowels</span></a></li>
+<li class="toclevel-1"><a href="#What_Next"><span class="tocnumber">14</span> <span class="toctext">What Next</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Introduction">Introduction</span></h2>
+<div class="qu zood">
+
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">1.</span><p><a href="http://sqlzoo.net/wiki/Read_the_notes_about_this_table." title="Read the notes about this table.">Read the notes about this table.</a> Observe the result of running this SQL command to show the name, continent and population of all countries. 
+</p><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">continent</span><span class="p">,</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span>
+</pre></div><form name="frm__1" id="frm__1"><div class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_1">SELECT name, continent, population FROM world</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">continent</span><span class="p">,</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th><th>continent</th><th>population</th></tr><tr><td>Afghanistan</td><td>Asia</td><td class="r">25500100</td></tr><tr><td>Albania</td><td>Europe</td><td class="r">2821977</td></tr><tr><td>Algeria</td><td>Africa</td><td class="r">38700000</td></tr><tr><td>Andorra</td><td>Europe</td><td class="r">76098</td></tr><tr><td>Angola</td><td>Africa</td><td class="r">19183590</td></tr><tr><td>Antigua and Barbuda</td><td>Caribbean</td><td class="r">86295</td></tr><tr><td>Argentina</td><td>South America</td><td class="r">42669500</td></tr><tr><td>Armenia</td><td>Eurasia</td><td class="r">3017400</td></tr><tr><td>Australia</td><td>Oceania</td><td class="r">23545500</td></tr><tr><td>Austria</td><td>Europe</td><td class="r">8504850</td></tr><tr><td>Azerbaijan</td><td>Asia</td><td class="r">9477100</td></tr><tr><td>Bahamas</td><td>Caribbean</td><td class="r">351461</td></tr><tr><td>Bahrain</td><td>Asia</td><td class="r">1234571</td></tr><tr><td>Bangladesh</td><td>Asia</td><td class="r">156557000</td></tr><tr><td>Barbados</td><td>Caribbean</td><td class="r">285000</td></tr><tr><td>Belarus</td><td>Europe</td><td class="r">9467000</td></tr><tr><td>Belgium</td><td>Europe</td><td class="r">11198638</td></tr><tr><td>Belize</td><td>North America</td><td class="r">349728</td></tr><tr><td>Benin</td><td>Africa</td><td class="r">9988068</td></tr><tr><td>Bhutan</td><td>Asia</td><td class="r">749090</td></tr><tr><td>Bolivia</td><td>South America</td><td class="r">10027254</td></tr><tr><td>Bosnia and Herzegovina</td><td>Europe</td><td class="r">3791622</td></tr><tr><td>Botswana</td><td>Africa</td><td class="r">2024904</td></tr><tr><td>Brazil</td><td>South America</td><td class="r">202794000</td></tr><tr><td>Brunei</td><td>Asia</td><td class="r">393162</td></tr><tr><td>Bulgaria</td><td>Europe</td><td class="r">7245677</td></tr><tr><td>Burkina Faso</td><td>Africa</td><td class="r">17322796</td></tr><tr><td>Burundi</td><td>Africa</td><td class="r">9420248</td></tr><tr><td>Cambodia</td><td>Asia</td><td class="r">15184116</td></tr><tr><td>Cameroon</td><td>Africa</td><td class="r">20386799</td></tr><tr><td>Canada</td><td>North America</td><td class="r">35427524</td></tr><tr><td>Cape Verde</td><td>Africa</td><td class="r">491875</td></tr><tr><td>Central African Republic</td><td>Africa</td><td class="r">4709000</td></tr><tr><td>Chad</td><td>Africa</td><td class="r">13211000</td></tr><tr><td>Chile</td><td>South America</td><td class="r">17773000</td></tr><tr><td>China</td><td>Asia</td><td class="r">1365370000</td></tr><tr><td>Colombia</td><td>South America</td><td class="r">47662000</td></tr><tr><td>Comoros</td><td>Africa</td><td class="r">743798</td></tr><tr><td>Congo, Democratic Republic of</td><td>Africa</td><td class="r">69360000</td></tr><tr><td>Congo, Republic of</td><td>Africa</td><td class="r">4559000</td></tr><tr><td>Costa Rica</td><td>North America</td><td class="r">4667096</td></tr><tr><td>Côte d'Ivoire</td><td>Africa</td><td class="r">23919000</td></tr><tr><td>Croatia</td><td>Europe</td><td class="r">4290612</td></tr><tr><td>Cuba</td><td>Caribbean</td><td class="r">11167325</td></tr><tr><td>Cyprus</td><td>Asia</td><td class="r">865878</td></tr><tr><td>Czech Republic</td><td>Europe</td><td class="r">10517400</td></tr><tr><td>Denmark</td><td>Europe</td><td class="r">5634437</td></tr><tr><td>Djibouti</td><td>Africa</td><td class="r">886000</td></tr><tr><td>Dominica</td><td>Caribbean</td><td class="r">71293</td></tr><tr><td>Dominican Republic</td><td>Caribbean</td><td class="r">9445281</td></tr><tr><td colspan="3">Results truncated. Only the first 50 rows have been shown.</td></tr></table></div></div>
+<h2><span class="mw-headline" id="Large_Countries">Large Countries</span></h2>
+<div class="qu zood">
+
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">2.</span><p><a href="http://sqlzoo.net/wiki/WHERE_filters" title="WHERE filters">How to use WHERE to filter records.</a>
+Show the name for the countries  that have a population of at least 200 million.
+200 million is 200000000, there are eight zeros. 
+</p><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span> <span class="o">=</span> <span class="mi">64105700</span>
+</pre></div><form name="frm__2" id="frm__2"><div class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_2">SELECT name FROM world
+WHERE population &gt;= 200000000</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">population</span><span class="o">&gt;</span><span class="mi">200000000</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th></tr><tr><td>Brazil</td></tr><tr><td>China</td></tr><tr><td>India</td></tr><tr><td>Indonesia</td></tr><tr><td>United States</td></tr></table></div></div>
+<h2><span class="mw-headline" id="Per_capita_GDP">Per capita GDP</span></h2>
+<div class="qu zood">
+
+ 
+
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">3.</span><p>Give the <code>name</code> and the <b>per capita GDP</b> for those countries with a <code>population</code> of at least 200 million. 
+</p><div class="tease">HELP:How to calculate per capita GDP</div><div title="HELP:How to calculate per capita GDP" class="hint" style="display: none;">
+<p>per capita GDP is the GDP divided by the population GDP/population 
+</p>
+</div><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>
+</pre></div><form name="frm__3" id="frm__3"><div class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_3">Select name, gdp/population From world
+Where population &gt;= 200000000</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">gdp</span><span class="o">/</span><span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span>
+  <span class="k">WHERE</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">200000000</span>
+</pre></div><div class="embedvideo autoResize" style=""><div class="embedvideowrap" style="width: 640px;"><iframe src="//www.youtube.com/embed/5Md75Wfpocs?" allowfullscreen="true" width="640" height="360" frameborder="0"></iframe></div></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th><th>gdp/population</th></tr><tr><td>Brazil</td><td class="r">11115.2648</td></tr><tr><td>China</td><td class="r">6121.7106</td></tr><tr><td>India</td><td class="r">1504.7931</td></tr><tr><td>Indonesia</td><td class="r">3482.0205</td></tr><tr><td>United States</td><td class="r">51032.2945</td></tr></table></div></div>
+<h2><span class="mw-headline" id="South_America_In_millions">South America In millions</span></h2>
+<div class="qu zood">
+
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">4.</span><p>Show the <code>name</code> and <code>population</code> in millions for the countries of the <code>continent</code> 'South America'.
+Divide the population by 1000000 to get population in millions. 
+</p><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>
+</pre></div><form name="frm__4" id="frm__4"><div class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_4">Select name, population/1000000
+From world
+Where continent = 'South America'</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span><span class="o">/</span><span class="mi">1000000</span> <span class="k">FROM</span> <span class="n">world</span>
+  <span class="k">WHERE</span> <span class="n">continent</span><span class="o">=</span><span class="s1">'South America'</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th><th>population/10..</th></tr><tr><td>Argentina</td><td class="r">42.6695</td></tr><tr><td>Bolivia</td><td class="r">10.0273</td></tr><tr><td>Brazil</td><td class="r">202.7940</td></tr><tr><td>Chile</td><td class="r">17.7730</td></tr><tr><td>Colombia</td><td class="r">47.6620</td></tr><tr><td>Ecuador</td><td class="r">15.7742</td></tr><tr><td>Guyana</td><td class="r">0.7849</td></tr><tr><td>Paraguay</td><td class="r">6.7834</td></tr><tr><td>Peru</td><td class="r">30.4751</td></tr><tr><td>Saint Vincent and the Grenadines</td><td class="r">0.1090</td></tr><tr><td>Suriname</td><td class="r">0.5342</td></tr><tr><td>Uruguay</td><td class="r">3.2863</td></tr><tr><td>Venezuela</td><td class="r">28.9461</td></tr></table></div></div>
+<h2><span class="mw-headline" id="France.2C_Germany.2C_Italy">France, Germany, Italy</span></h2>
+<div class="qu zood">
+
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">5.</span><p>Show the <code>name</code> and <code>population</code> for France, Germany, Italy
+</p><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>
+</pre></div><form name="frm__5" id="frm__5"><div class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_5">Select name,population From world
+where name IN ('France','Germany','Italy')</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span> <span class="k">FROM</span> <span class="n">world</span>
+  <span class="k">WHERE</span> <span class="n">name</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'France'</span><span class="p">,</span><span class="s1">'Germany'</span><span class="p">,</span><span class="s1">'Italy'</span><span class="p">)</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th><th>population</th></tr><tr><td>France</td><td class="r">65906000</td></tr><tr><td>Germany</td><td class="r">80716000</td></tr><tr><td>Italy</td><td class="r">60782668</td></tr></table></div></div>
+<h2><span class="mw-headline" id="United">United</span></h2>
+<div class="qu zood">
+
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">6.</span><p>Show the countries which have a <code>name</code> that includes the word 'United'
+</p><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>
+</pre></div><form name="frm__6" id="frm__6"><div class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_6">Select name from world
+where name LIKE '%United%'</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="n">world</span>
+  <span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'%United%'</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th></tr><tr><td>United Arab Emirates</td></tr><tr><td>United Kingdom</td></tr><tr><td>United States</td></tr></table></div></div>
+<div>
+<h2><span class="mw-headline" id="Two_ways_to_be_big">Two ways to be big</span></h2>
+<div class="qu zood">
+
+ 
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">7.</span><p>Two ways to be big: A country is <b>big</b> if it has an area of more than 3 million sq km or it has a population of more than 250 million.
+</p><p class="imper">Show the countries that are big by area or big by population. Show name, population and area.</p><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>
+</pre></div><form name="frm__7" id="frm__7"><div class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_7">Select name, population, area
+From world
+Where area/1000000 &gt;= 3 OR population/1000000 &gt;= 250 </textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">select</span> <span class="n">name</span><span class="p">,</span><span class="n">population</span><span class="p">,</span><span class="n">area</span>
+<span class="k">from</span> <span class="n">world</span>
+<span class="k">where</span> <span class="n">area</span><span class="o">&gt;</span><span class="mi">3000000</span>
+<span class="k">or</span> <span class="n">population</span><span class="o">&gt;</span><span class="mi">250000000</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th><th>population</th><th>area</th></tr><tr><td>Australia</td><td class="r">23545500</td><td class="r">7692024</td></tr><tr><td>Brazil</td><td class="r">202794000</td><td class="r">8515767</td></tr><tr><td>Canada</td><td class="r">35427524</td><td class="r">9984670</td></tr><tr><td>China</td><td class="r">1365370000</td><td class="r">9596961</td></tr><tr><td>India</td><td class="r">1246160000</td><td class="r">3166414</td></tr><tr><td>Indonesia</td><td class="r">252164800</td><td class="r">1904569</td></tr><tr><td>Russia</td><td class="r">146000000</td><td class="r">17125242</td></tr><tr><td>United States</td><td class="r">318320000</td><td class="r">9826675</td></tr></table></div></div>
+<div>
+<h2><span class="mw-headline" id="One_or_the_other_.28but_not_both.29">One or the other (but not both)</span></h2>
+<div class="qu zood">
+ 
+
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">8.</span><p class="imper">Exclusive OR (XOR). Show the countries that are big by area or big by population but not both. Show name, population and area.</p><ul><li>Australia has a big area but a small population, it should be <b>included</b>.</li>
+<li>Indonesia has a big population but a small area, it should be <b>included</b>.</li>
+<li>China has a big population <b>and</b> big area, it should be <b>excluded</b>.</li>
+<li>United Kingdom has a small population and a small area, it should be <b>excluded</b>.</li></ul><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>
+</pre></div><form name="frm__8" id="frm__8"><div class="quf"><textarea spellcheck="false" rows="8" cols="48" class="sql" id="txtar_8">Select name, population, area
+From world
+Where (area/1000000&gt;=3 AND population/1000000&lt;=250)
+OR 
+(area/1000000&lt;=3 AND population/1000000&gt;=250)
+</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">select</span> <span class="n">name</span><span class="p">,</span> <span class="n">population</span><span class="p">,</span><span class="n">area</span>
+<span class="k">from</span> <span class="n">world</span>
+<span class="k">where</span>
+<span class="p">(</span><span class="n">population</span><span class="o">&gt;</span><span class="mi">250000000</span> <span class="k">or</span> <span class="n">area</span><span class="o">&gt;</span><span class="mi">3000000</span><span class="p">)</span>
+<span class="k">and</span> <span class="k">not</span><span class="p">(</span><span class="n">population</span><span class="o">&gt;</span><span class="mi">250000000</span> <span class="k">and</span> <span class="n">area</span><span class="o">&gt;</span><span class="mi">3000000</span><span class="p">)</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th><th>population</th><th>area</th></tr><tr><td>Australia</td><td class="r">23545500</td><td class="r">7692024</td></tr><tr><td>Brazil</td><td class="r">202794000</td><td class="r">8515767</td></tr><tr><td>Canada</td><td class="r">35427524</td><td class="r">9984670</td></tr><tr><td>Indonesia</td><td class="r">252164800</td><td class="r">1904569</td></tr><tr><td>Russia</td><td class="r">146000000</td><td class="r">17125242</td></tr></table></div></div>
+<h2><span class="mw-headline" id="Rounding">Rounding</span></h2>
+<div class="qu zood">
+
+
+
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">9.</span><p>Show the <code>name</code> and <code>population</code> in millions and the GDP in billions for the countries of the <code>continent</code> 'South America'. Use the <a href="http://sqlzoo.net/wiki/ROUND" title="ROUND">ROUND</a> function to show the values to two decimal places.
+</p><div class="imper">For South America show population in millions and GDP in billions both to 2 decimal places.</div><div class="tease">Millions and billions</div><div class="hint" title="Millions and billions" style="">Divide by 1000000 (6 zeros) for millions. Divide by 1000000000 (9 zeros) for billions.</div><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>
+</pre></div><form name="frm__9" id="frm__9"><div class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_9">Select name, Round(population/1000000,2), Round(gdp/1000000000,2)
+From world
+where continent = 'South America'</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">population</span><span class="o">/</span><span class="mi">1000000</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+             <span class="n">ROUND</span><span class="p">(</span><span class="n">gdp</span><span class="o">/</span><span class="mi">1000000000</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">world</span>
+ <span class="k">WHERE</span> <span class="n">continent</span><span class="o">=</span><span class="s1">'South America'</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th><th>Round(populat..</th><th>Round(gdp/100..</th></tr><tr><td>Argentina</td><td class="r">42.67</td><td class="r">477.03</td></tr><tr><td>Bolivia</td><td class="r">10.03</td><td class="r">27.04</td></tr><tr><td>Brazil</td><td class="r">202.79</td><td class="r">2254.11</td></tr><tr><td>Chile</td><td class="r">17.77</td><td class="r">268.31</td></tr><tr><td>Colombia</td><td class="r">47.66</td><td class="r">369.81</td></tr><tr><td>Ecuador</td><td class="r">15.77</td><td class="r">87.50</td></tr><tr><td>Guyana</td><td class="r">0.78</td><td class="r">2.85</td></tr><tr><td>Paraguay</td><td class="r">6.78</td><td class="r">25.94</td></tr><tr><td>Peru</td><td class="r">30.48</td><td class="r">204.68</td></tr><tr><td>Saint Vincent and the Grenadines</td><td class="r">0.11</td><td class="r">0.69</td></tr><tr><td>Suriname</td><td class="r">0.53</td><td class="r">5.01</td></tr><tr><td>Uruguay</td><td class="r">3.29</td><td class="r">49.92</td></tr><tr><td>Venezuela</td><td class="r">28.95</td><td class="r">382.42</td></tr></table></div></div>
+<div class="gamelink" style="padding:1ex;border:solid thin gray;border-radius:0.5ex"><a rel="nofollow" class="external text" href="http://sqlzoo.net/40289347/sql3/">Click here to play the SELECT card game</a></div>
+<h2><span class="mw-headline" id="Trillion_dollar_economies">Trillion dollar economies</span></h2>
+<div class="qu zood">
+
+ 
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">10.</span><p>Show the <code>name</code>
+ and per-capita GDP for those countries with a GDP of at least one 
+trillion (1000000000000; that is 12 zeros). Round this value to the 
+nearest 1000.
+</p><p class="imper">Show per-capita GDP for the trillion dollar countries to the nearest $1000.</p><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span>
+</pre></div><form name="frm__10" id="frm__10"><div class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_10">Select name, Round(gdp/population,-3)
+from world
+where Round(gdp/1000000000000&gt;=1)</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">select</span> <span class="n">name</span><span class="p">,</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">gdp</span><span class="o">/</span><span class="n">population</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">from</span> <span class="n">world</span>
+<span class="k">where</span>
+<span class="n">gdp</span><span class="o">&gt;</span><span class="mi">1000000000000</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th><th>Round(gdp/pop..</th></tr><tr><td>Australia</td><td class="r">66000</td></tr><tr><td>Brazil</td><td class="r">11000</td></tr><tr><td>Canada</td><td class="r">45000</td></tr><tr><td>China</td><td class="r">6000</td></tr><tr><td>France</td><td class="r">40000</td></tr><tr><td>Germany</td><td class="r">42000</td></tr><tr><td>India</td><td class="r">2000</td></tr><tr><td>Italy</td><td class="r">33000</td></tr><tr><td>Japan</td><td class="r">47000</td></tr><tr><td>Mexico</td><td class="r">10000</td></tr><tr><td>Russia</td><td class="r">14000</td></tr><tr><td>South Korea</td><td class="r">22000</td></tr><tr><td>Spain</td><td class="r">28000</td></tr><tr><td>United Kingdom</td><td class="r">39000</td></tr><tr><td>United States</td><td class="r">51000</td></tr></table></div></div>
+<h2><span class="mw-headline" id="Name_and_capital_have_the_same_length">Name and capital have the same length</span></h2>
+<div class="qu zood">
+
+
+
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">11.</span><p>Greece has capital Athens.
+</p><p>Each of the strings 'Greece', and 'Athens' has 6 characters.
+</p><p class="imper">Show the name and capital where the name and the capital have the same number of characters.</p><ul><li>You can use the <a href="http://sqlzoo.net/wiki/LENGTH" title="LENGTH">LENGTH</a> function to find the number of characters in a string</li></ul><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">continent</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">continent</span><span class="p">),</span> <span class="n">capital</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">capital</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="n">world</span>
+ <span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'G%'</span>
+</pre></div><form name="frm__11" id="frm__11"><div class="quf"><textarea spellcheck="false" rows="6" cols="83" class="sql" id="txtar_11">SELECT name,capital
+FROM world
+WHERE LENGTH(name)=LENGTH(capital)</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="n">capital</span>
+  <span class="k">FROM</span> <span class="n">world</span>
+ <span class="k">WHERE</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="o">=</span><span class="k">LENGTH</span><span class="p">(</span><span class="n">capital</span><span class="p">)</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th><th>capital</th></tr><tr><td>Algeria</td><td>Algiers</td></tr><tr><td>Angola</td><td>Luanda</td></tr><tr><td>Armenia</td><td>Yerevan</td></tr><tr><td>Botswana</td><td>Gaborone</td></tr><tr><td>Cameroon</td><td>Yaoundé</td></tr><tr><td>Canada</td><td>Ottowa</td></tr><tr><td>Djibouti</td><td>Djibouti</td></tr><tr><td>Egypt</td><td>Cairo</td></tr><tr><td>Estonia</td><td>Tallinn</td></tr><tr><td>Fiji</td><td>Suva</td></tr><tr><td>Gambia</td><td>Banjul</td></tr><tr><td>Georgia</td><td>Tbilisi</td></tr><tr><td>Ghana</td><td>Accra</td></tr><tr><td>Greece</td><td>Athens</td></tr><tr><td>Luxembourg</td><td>Luxembourg</td></tr><tr><td>Mauritania</td><td>Nouakchott</td></tr><tr><td>Peru</td><td>Lima</td></tr><tr><td>Poland</td><td>Warsaw</td></tr><tr><td>Russia</td><td>Moscow</td></tr><tr><td>Rwanda</td><td>Kigali</td></tr><tr><td>San Marino</td><td>San Marino</td></tr><tr><td>Singapore</td><td>Singapore</td></tr><tr><td>Taiwan</td><td>Taipei</td></tr><tr><td>Turkey</td><td>Ankara</td></tr><tr><td>Zambia</td><td>Lusaka</td></tr></table></div></div>
+<h2><span class="mw-headline" id="Matching_name_and_capital">Matching name and capital</span></h2>
+<div class="qu zood">
+
+
+
+
+
+<div><div class="qcorrect" title="You have answered this question correctly." style=""></div><span class="id">12.</span><p>The capital of Sweden is Stockholm. Both words start with the letter 'S'.
+</p><div class="imper">Show the name and the capital where the first letters of each match.
+Don't include countries where the name and the capital are the same word.</div><ul><li>You can use the function <a href="http://sqlzoo.net/wiki/LEFT" title="LEFT">LEFT</a> to isolate the first character.</li>
+<li>You can use <code>&lt;&gt;</code> as the <b>NOT EQUALS</b> operator.</li></ul><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span> <span class="k">LEFT</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">capital</span>
+<span class="k">FROM</span> <span class="n">world</span>
+</pre></div><form name="frm__12" id="frm__12"><div class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_12">SELECT name,capital
+FROM world
+Where LEFT(name,1)=LEFT(capital,1) AND name&lt;&gt;capital</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span><span class="p">,</span><span class="n">capital</span>
+<span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="k">LEFT</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="k">LEFT</span><span class="p">(</span><span class="n">capital</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">AND</span> <span class="n">name</span><span class="o">&lt;&gt;</span><span class="n">capital</span>
+</pre></div></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>name</th><th>capital</th></tr><tr><td>Algeria</td><td>Algiers</td></tr><tr><td>Andorra</td><td>Andorra la Vella</td></tr><tr><td>Barbados</td><td>Bridgetown</td></tr><tr><td>Belize</td><td>Belmopan</td></tr><tr><td>Brazil</td><td>Brasília</td></tr><tr><td>Brunei</td><td>Bandar Seri Begawan</td></tr><tr><td>Burundi</td><td>Bujumbura</td></tr><tr><td>Guatemala</td><td>Guatemala City</td></tr><tr><td>Guyana</td><td>Georgetown</td></tr><tr><td>Kuwait</td><td>Kuwait City</td></tr><tr><td>Maldives</td><td>Malé</td></tr><tr><td>Marshall Islands</td><td>Majuro</td></tr><tr><td>Mexico</td><td>Mexico City</td></tr><tr><td>Monaco</td><td>Monaco-Ville</td></tr><tr><td>Mozambique</td><td>Maputo</td></tr><tr><td>Niger</td><td>Niamey</td></tr><tr><td>Panama</td><td>Panama City</td></tr><tr><td>Papua New Guinea</td><td>Port Moresby</td></tr><tr><td>Sao Tomé and Príncipe</td><td>São Tomé</td></tr><tr><td>South Korea</td><td>Seoul</td></tr><tr><td>Sri Lanka</td><td>Sri Jayawardenepura Kotte</td></tr><tr><td>Sweden</td><td>Stockholm</td></tr><tr><td>Taiwan</td><td>Taipei</td></tr><tr><td>Tunisia</td><td>Tunis</td></tr></table></div></div>
+<h2><span class="mw-headline" id="All_the_vowels">All the vowels</span></h2>
+<div class="qu zood">
+
+
+
+
+
+<div><span class="id">13.</span><p><b>Equatorial Guinea</b> and <b>Dominican Republic</b> have all of the vowels (a e i o u) in the name. They don't count because they have more than one word in the name.
+</p><p class="imper">Find the country that has all the vowels and no spaces in its name.</p><ul><li>You can use the phrase <code>name NOT LIKE '%a%'</code> to exclude characters from your results.</li>
+<li>The query shown misses countries like Bahamas and Belarus because they contain at least one 'a'</li></ul><div class="def mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span>
+   <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'B%'</span>
+  <span class="k">AND</span> <span class="n">name</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="s1">'%a%'</span>
+</pre></div><form name="frm__13" id="frm__13"><div class="quf"><textarea spellcheck="false" rows="11" cols="47" class="sql" id="txtar_13">SELECT name
+   FROM world
+WHERE name LIKE '%A%I%E%U%O'</textarea><button class="submitSQL">Submit SQL</button><div class="reset">Restore default</div></div></form><div class="ans mw-highlight mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span>
+  <span class="k">FROM</span> <span class="n">world</span>
+<span class="k">WHERE</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'%a%'</span>
+<span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'%e%'</span>
+<span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'%i%'</span>
+<span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'%o%'</span>
+<span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="s1">'%u%'</span>
+<span class="k">AND</span> <span class="n">name</span> <span class="k">NOT</span> <span class="k">LIKE</span> <span class="s1">'% %'</span>
+</pre></div></div><div class="res"><h1>Wrong answer. Too few rows</h1><table class="sqlmine"><tr><th>name</th></tr></table><div class="showtxt">Show what the answer should be...</div><table class="sqlans"><tr><th>name</th></tr><tr><td>Mozambique</td></tr></table></div></div>
+<p><br>
+</p>
+<h2><span class="mw-headline" id="What_Next">What Next</span></h2>
+<div class="gamelink" style="padding:1ex;border:solid thin gray;border-radius:0.5ex"><a rel="nofollow" class="external text" href="http://sqlzoo.net/40289347/sql3/">Click here to play the SELECT card game</a></div>
+<ul>
+  <li><a href="http://sqlzoo.net/wiki/BBC_QUIZ" title="BBC QUIZ">BBC QUIZ</a></li>
+  <li>You can to continue practising the the same techniques
+     and gain more experience of the basic skills on the Nobel table.
+  <a href="http://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial" title="SELECT from Nobel Tutorial">The <code>WHERE</code> statement using the
+  <code>nobel</code> table.</a>
+  </li>
+  <li>You can learn about nested statements, these are instructive and entertaining, but not essential for beginners.
+  <a href="http://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial" title="SELECT within SELECT Tutorial">Nested <code>SELECT</code> statements using the
+  <code>world</code> table.</a></li>
+</ul></div>
+</div>
+
+<!-- 
+NewPP limit report
+Cached time: 20180730055919
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.299 seconds
+Real time usage: 0.325 seconds
+Preprocessor visited node count: 5535/1000000
+Preprocessor generated node count: 7997/1000000
+Post‐expand include size: 30592/2097152 bytes
+Template argument size: 8989/2097152 bytes
+Highest expansion depth: 17/40
+Expensive parser function count: 77/100
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  303.076      1 -total
+100.00%  303.076      1 Template:Languages
+ 84.14%  255.016    149 Template:Languages/Lang
+ 67.60%  204.871      1 Template:Nmbox
+ 46.19%  139.978    156 Template:Translatable
+ 27.62%   83.704    152 Template:Pagelang
+  6.07%   18.409      1 Template:Ll
+  3.79%   11.480      1 Template:Languages/Title
+  3.43%   10.394      1 Template:LangSwitch
+  1.51%    4.578      1 Template:Dir
+-->
+</div>
+<!-- Saved in parser cache with key sqlzoo_wiki:pcache:idhash:915-0!canonical and timestamp 20180730055919 and revision id 39070
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://sqlzoo.net/w/index.php?title=SELECT_from_WORLD_Tutorial&amp;oldid=39070">http://sqlzoo.net/w/index.php?title=SELECT_from_WORLD_Tutorial&amp;oldid=39070</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://sqlzoo.net/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="http://sqlzoo.net/w/index.php?title=Category:Languages_pages&amp;action=edit&amp;redlink=1" class="new" title="Category:Languages pages (page does not exist)">Languages pages</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+													</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+														
+							
+						</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label" tabindex="0">
+							<span>Variants</span>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+														
+							
+							
+						</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label" style="">
+						<h3 id="p-cactions-label" tabindex="0"><span></span></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										
+									</div>
+			<div id="cog-cont"><div style="background-image: url(&quot;/design/Cog_font_awesome.svg&quot;); z-index: 1003; width: 32px; height: 32px; position: absolute; right: 0px; top: 0px;" title="Wiki Controls" id="cog"></div><ul id="coglist" style="display: none; z-index: 1003;"><li><div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input name="search" placeholder="Search SQLZOO" title="Search SQLZOO [Alt+Shift+f]" accesskey="f" id="searchInput" tabindex="1" autocomplete="off" type="search"><input value="Special:Search" name="title" type="hidden"><input name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton" type="submit">							</div>
+						</form>
+					</div></li><li id="pt-createaccount"><a href="http://sqlzoo.net/w/index.php?title=Special:CreateAccount&amp;returnto=SELECT+from+WORLD+Tutorial" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pick-engine"><span id="engineTxt"><span>SQL Engine: </span><select id="engine"><option value="mysql" selected="selected">MySQL</option><option value="mssql">SQL Server</option><option value="oracle">Oracle</option><option value="awsmysql">MySQL at Amazon</option></select></span></li><li id="pt-login"><a href="http://sqlzoo.net/w/index.php?title=Special:UserLogin&amp;returnto=SELECT+from+WORLD+Tutorial" title="You are encouraged to log in; however, it is not mandatory [Alt+Shift+o]" accesskey="o">Log in</a></li><li id="ca-view" class="selected collapsible"><span><a href="http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial">Read</a></span></li><li id="ca-viewsource" class="collapsible"><span><a href="http://sqlzoo.net/w/index.php?title=SELECT_from_WORLD_Tutorial&amp;action=edit" title="This page is protected.
+You can view its source [Alt+Shift+e]" accesskey="e">View source</a></span></li><li id="ca-history" class="collapsible"><span><a href="http://sqlzoo.net/w/index.php?title=SELECT_from_WORLD_Tutorial&amp;action=history" title="Past revisions of this page [Alt+Shift+h]" accesskey="h">View history</a></span></li><li id="ca-nstab-main" class="selected"><span><a href="http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial" title="View the content page [Alt+Shift+c]" accesskey="c">Page</a></span></li><li id="ca-talk" class="new"><span><a href="http://sqlzoo.net/w/index.php?title=Talk:SELECT_from_WORLD_Tutorial&amp;action=edit&amp;redlink=1" rel="discussion" title="Discussion about the content page [Alt+Shift+t]" accesskey="t">Discussion</a></span></li></ul></div></div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="http://sqlzoo.net/wiki/SQL_Tutorial" title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id="p-" aria-labelledby="p--label">
+			<h3 id="p--label"></h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-SELECT-basics"><a href="http://sqlzoo.net/wiki/SELECT_basics">SELECT basics</a><div class="progressbarbg1" title="Completed 3 of 3"><div class="progressbar1" style="width: 4.1ex;"></div></div></li><li id="n-quiz"><a href="http://sqlzoo.net/wiki/SELECT_Quiz">quiz</a><div class="progressbarbg1" title="Completed 0 of 8"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-SELECT-from-world"><a href="http://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial">SELECT from world</a><div class="progressbarbg1" title="Completed 6 of 6"><div class="progressbar1" style="width: 4.1ex;"></div></div></li><li id="n-quiz"><a href="http://sqlzoo.net/wiki/BBC_QUIZ">quiz</a><div class="progressbarbg1" title="Completed 0 of 7"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-SELECT-from-nobel"><a href="http://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial">SELECT from nobel</a><div class="progressbarbg1" title="Completed 0 of 8"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-quiz"><a href="http://sqlzoo.net/wiki/Nobel_Quiz">quiz</a><div class="progressbarbg1" title="Completed 0 of 7"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-SELECT-in-SELECT"><a href="http://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial">SELECT in SELECT</a><div class="progressbarbg1" title="Completed 0 of 8"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-quiz"><a href="http://sqlzoo.net/wiki/Nested_SELECT_Quiz">quiz</a><div class="progressbarbg1" title="Completed 0 of 7"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-SUM-and-COUNT"><a href="http://sqlzoo.net/wiki/SUM_and_COUNT">SUM and COUNT</a><div class="progressbarbg1" title="Completed 0 of 8"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-quiz"><a href="http://sqlzoo.net/wiki/SUM_and_COUNT_Quiz">quiz</a><div class="progressbarbg1" title="Completed 0 of 8"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-JOIN"><a href="http://sqlzoo.net/wiki/The_JOIN_operation">JOIN</a><div class="progressbarbg1" title="Completed 0 of 13"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-quiz"><a href="http://sqlzoo.net/wiki/JOIN_Quiz">quiz</a><div class="progressbarbg1" title="Completed 0 of 7"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-More-JOIN"><a href="http://sqlzoo.net/wiki/More_JOIN_operations">More JOIN</a><div class="progressbarbg1" title="Completed 0 of 16"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-quiz"><a href="http://sqlzoo.net/wiki/JOIN_Quiz_2">quiz</a><div class="progressbarbg1" title="Completed 0 of 7"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-Using-NULL"><a href="http://sqlzoo.net/wiki/Using_Null">Using NULL</a><div class="progressbarbg1" title="Completed 0 of 10"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-quiz"><a href="http://sqlzoo.net/wiki/Using_Null_Quiz">quiz</a><div class="progressbarbg1" title="Completed 0 of 6"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-Self-JOIN"><a href="http://sqlzoo.net/wiki/Self_join">Self JOIN</a><div class="progressbarbg1" title="Completed 0 of 10"><div class="progressbar1" style="width: 0ex;"></div></div></li><li id="n-quiz"><a href="http://sqlzoo.net/wiki/Self_join_Quiz">quiz</a><div class="progressbarbg1" title="Completed 0 of 3"><div class="progressbar1" style="width: 0ex;"></div></div></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-Reference" aria-labelledby="p-Reference-label">
+			<h3 id="p-Reference-label">Reference</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-SELECT"><a href="http://sqlzoo.net/wiki/SELECT">SELECT</a></li><li id="n-Functions"><a href="http://sqlzoo.net/wiki/FUNCTIONS">Functions</a></li><li id="n-SELECT-..-WHERE"><a href="http://sqlzoo.net/wiki/SELECT_.._WHERE">SELECT .. WHERE</a></li><li id="n-SELECT-..-GROUP-BY"><a href="http://sqlzoo.net/wiki/SELECT_.._GROUP_BY">SELECT .. GROUP BY</a></li><li id="n-SELECT-..-JOIN"><a href="http://sqlzoo.net/wiki/SELECT_.._JOIN">SELECT .. JOIN</a></li><li id="n-SELECT-..-SELECT"><a href="http://sqlzoo.net/wiki/SELECT_.._SELECT">SELECT .. SELECT</a></li><li id="n-INSERT-..-VALUES"><a href="http://sqlzoo.net/wiki/INSERT_.._VALUES">INSERT .. VALUES</a></li><li id="n-INSERT-..-SELECT"><a href="http://sqlzoo.net/wiki/INSERT_.._SELECT">INSERT .. SELECT</a></li><li id="n-UPDATE"><a href="http://sqlzoo.net/wiki/UPDATE">UPDATE</a></li><li id="n-DELETE"><a href="http://sqlzoo.net/wiki/DELETE">DELETE</a></li><li id="n-CREATE-TABLE"><a href="http://sqlzoo.net/wiki/CREATE_TABLE">CREATE TABLE</a></li><li id="n-CREATE-VIEW"><a href="http://sqlzoo.net/wiki/CREATE_VIEW">CREATE VIEW</a></li><li id="n-CREATE-INDEX"><a href="http://sqlzoo.net/wiki/CREATE_INDEX">CREATE INDEX</a></li><li id="n-DROP"><a href="http://sqlzoo.net/wiki/DROP">DROP</a></li><li id="n-ALTER"><a href="http://sqlzoo.net/wiki/ALTER">ALTER</a></li><li id="n-UNION"><a href="http://sqlzoo.net/wiki/UNION">UNION</a></li><li id="n-LEFT-JOIN"><a href="http://sqlzoo.net/wiki/LEFT_JOIN">LEFT JOIN</a></li><li id="n-NULL"><a href="http://sqlzoo.net/wiki/NULL">NULL</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+			<h3 id="p-tb-label">Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="http://sqlzoo.net/wiki/Special:WhatLinksHere/SELECT_from_WORLD_Tutorial" title="A list of all wiki pages that link here [Alt+Shift+j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="http://sqlzoo.net/wiki/Special:RecentChangesLinked/SELECT_from_WORLD_Tutorial" rel="nofollow" title="Recent changes in pages linked from this page [Alt+Shift+k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="http://sqlzoo.net/wiki/Special:SpecialPages" title="A list of all special pages [Alt+Shift+q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="http://sqlzoo.net/w/index.php?title=SELECT_from_WORLD_Tutorial&amp;printable=yes" rel="alternate" title="Printable version of this page [Alt+Shift+p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="http://sqlzoo.net/w/index.php?title=SELECT_from_WORLD_Tutorial&amp;oldid=39070" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="http://sqlzoo.net/w/index.php?title=SELECT_from_WORLD_Tutorial&amp;action=info" title="More information about this page">Page information</a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo"><ins class="adsbygoogle" style="display: block; height: 0px;" data-ad-client="ca-pub-0803888854272698" data-ad-slot="2184001182" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display: inline-table; border: medium none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 1133px; background-color: transparent;"><ins id="aswift_0_anchor" style="display: block; border: medium none; height: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 1133px; background-color: transparent; overflow: hidden; opacity: 0;"><iframe marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:1133px;height:90px;" width="1133" height="90" frameborder="0"></iframe></ins></ins></ins>
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last edited on 22 August 2017, at 13:23.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="http://sqlzoo.net/wiki/SQLZOO:Privacy_policy" title="SQLZOO:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="http://sqlzoo.net/wiki/SQLZOO:About" title="SQLZOO:About">About SQLZOO</a></li>
+											<li id="footer-places-disclaimer"><a href="http://sqlzoo.net/wiki/SQLZOO:General_disclaimer" title="SQLZOO:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+							<a href="http://www.mediawiki.org/"><img src="SELECT%20from%20WORLD%20Tutorial%20-%20SQLZOO_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.299","walltime":"0.325","ppvisitednodes":{"value":5535,"limit":1000000},"ppgeneratednodes":{"value":7997,"limit":1000000},"postexpandincludesize":{"value":30592,"limit":2097152},"templateargumentsize":{"value":8989,"limit":2097152},"expansiondepth":{"value":17,"limit":40},"expensivefunctioncount":{"value":77,"limit":100},"timingprofile":["100.00%  303.076      1 -total","100.00%  303.076      1 Template:Languages"," 84.14%  255.016    149 Template:Languages/Lang"," 67.60%  204.871      1 Template:Nmbox"," 46.19%  139.978    156 Template:Translatable"," 27.62%   83.704    152 Template:Pagelang","  6.07%   18.409      1 Template:Ll","  3.79%   11.480      1 Template:Languages/Title","  3.43%   10.394      1 Template:LangSwitch","  1.51%    4.578      1 Template:Dir"]},"cachereport":{"timestamp":"20180730055919","ttl":86400,"transientcontent":false}}});});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":71});});</script>
+	
+
+<div style="display: none; font-size: 13px;" class="suggestions"><div class="suggestions-results"></div><div class="suggestions-special"></div></div><iframe id="google_osd_static_frame_1730066573825" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;"></iframe></body></html>
